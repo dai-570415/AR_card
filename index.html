@@ -27,12 +27,19 @@
   </a-marker>
 
   <a-marker type='pattern' url='./marker/pattern-VF72WIsL_400x400.patt'>
-      <a-entity
+      <!-- <a-entity
         link="href: https://github.com/dai-570415; title: My Homepage 002; image: #thumb001"
         position="0 .5 0"
+      ></a-entity> -->
+      <a-link
+        href="https://github.com/dai-570415"
+        position="0 .5 0"
+        title="My Homepage"
+        image="#homeThumbnail"
         target="_blank"
         rel="noopener noreferrer"
-      ></a-entity>
+      >
+      </a-link>
   </a-marker>
   <a-entity camera look-controls wasd-controls>
     <a-entity cursor="fuse: true;"
