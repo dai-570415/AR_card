@@ -5,14 +5,38 @@
   <script src='https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js'></script>
 </head>
 <body style='margin: 0px; overflow: hidden;'>
-  <!-- debugUIEnabledをtrueにすると、デバッグ情報が表示される。 -->
+  <script>
+    // a-sceneより先に宣言する必要あり
+    AFRAME.registerComponent('marker', {
+      init: function () {
+        // マーカー検出時にアニメーション開始
+        let marker = this.el;
+        marker.addEventListener('markerFound', function () {
+          document.getElementById('obj').setAttribute('animation__scale', 'enabled: true');
+        });
+      }
+    });
+  </script>
   <a-scene embedded arjs='debugUIEnabled: false;'>
-    <!-- マーカーを設定。デフォルトではpresetにhiroとkanjiが設定可能。 -->
+    <a-marker preset='hiro' marker>
+      <!-- 三角錐を描画 -->
+      <!-- 最初の3秒で大きさの倍率を0から1に -->
+      <!-- その後3秒かけてxyz軸方向それぞれ360度回転をループ -->
+      <a-tetrahedron id='obj' material='color: red;' position='0 1.5 0' scale='0 0 0'
+        animation__scale='property: scale; dur: 3000; from: 0 0 0; to: 1 1 1; easing: linear; enabled: false;'
+        animation__rotation='property: rotation; dur: 3000; from: 0 0 0; to: 360 360 360; easing: easeInOutCubic; loop: true; startEvents: animationcomplete__scale;'
+      >
+      </a-tetrahedron>
+    </a-marker>
+    <!-- カメラを設定 -->
+    <a-entity camera></a-entity>
+  </a-scene>
+  
+  <!-- <a-scene embedded arjs='debugUIEnabled: false;'>
     <a-marker preset="hiro">
-      <!-- 立方体を描画 -->
       <a-box position='0 0.5 0' material='color: yellow;'></a-box>
     </a-marker>
     <a-entity camera></a-entity>
-  </a-scene>
+  </a-scene> -->
 </body>
 </html>
