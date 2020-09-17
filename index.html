@@ -1,42 +1,24 @@
 <!DOCTYPE html>
-<html>
 <head>
-  <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
-  <script src='https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js'></script>
+  <!-- ① スクリプトの読み込み -->
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
 </head>
-<body style='margin: 0px; overflow: hidden;'>
-  <script>
-    // a-sceneより先に宣言する必要あり
-    AFRAME.registerComponent('marker', {
-      init: function () {
-        // マーカー検出時にアニメーション開始
-        let marker = this.el;
-        marker.addEventListener('markerFound', function () {
-          document.getElementById('obj').setAttribute('animation__scale', 'enabled: true');
-        });
-      }
-    });
-  </script>
-  <a-scene embedded arjs='debugUIEnabled: false;'>
-    <a-marker preset='hiro' marker>
-      <!-- 三角錐を描画 -->
-      <!-- 最初の3秒で大きさの倍率を0から1に -->
-      <!-- その後3秒かけてxyz軸方向それぞれ360度回転をループ -->
-      <a-tetrahedron id='obj' material='color: red;' position='0 1.5 0' scale='0 0 0'
-        animation__scale='property: scale; dur: 3000; from: 0 0 0; to: 1 1 1; easing: linear; enabled: false;'
-        animation__rotation='property: rotation; dur: 3000; from: 0 0 0; to: 360 360 360; easing: easeInOutCubic; loop: true; startEvents: animationcomplete__scale;'
-      >
-      </a-tetrahedron>
-    </a-marker>
-    <!-- カメラを設定 -->
-    <a-entity camera></a-entity>
-  </a-scene>
+<body style='margin: 0; overflow: hidden;'>
+
+<!-- シーンの追加とデバックUIを非表示 -->
+<a-scene embedded arjs="debugUIEnabled:false;">
+
+  <!-- ② hiroマーカーでのソース -->
+  <a-marker preset="hiro">
+    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#111">
+      <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
+      </a-animation>
+    </a-sphere>
+  </a-marker>
+
   
-  <!-- <a-scene embedded arjs='debugUIEnabled: false;'>
-    <a-marker preset="hiro">
-      <a-box position='0 0.5 0' material='color: yellow;'></a-box>
-    </a-marker>
-    <a-entity camera></a-entity>
-  </a-scene> -->
+  <a-entity camera></a-entity>
+</a-scene>
 </body>
 </html>
