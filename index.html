@@ -27,7 +27,7 @@
   </a-marker>
 
   <a-marker type='pattern' url='./marker/pattern-VF72WIsL_400x400.patt'>
-    <a-entity position="0 1.8 4">
+    <!-- <a-entity position="0 1.8 4">
       <a-camera>
         <a-cursor color="#4CC3D9"></a-cursor>
       <a-camera>
@@ -35,7 +35,12 @@
 
     <a-box id="orange-cube" scale=".25 .25 .25" position="0 .5 0" rotation="30 30 0"
       width="2" depth="2" height="2" color="#F16745"
-      href="https://github.com/gasolin/aframe-href-component"></a-box>
+      href="https://github.com/gasolin/aframe-href-component"></a-box> -->
+      <a-entity link="href: https://thomi40.github.io/aframe/082/sample-image-001/; title: My Homepage 002; image: #thumb001" position="0 1.2 -4"></a-entity>
+
+      <a-link href="https://thomi40.github.io/aframe/082/sample-image-002/" title="My Homepage 001" image="#thumb002" position="-4 1.2 -4"></a-link>
+
+      <a-link href="https://thomi40.github.io/aframe/082/sample-image-003/" title="My Homepage 003" image="#thumb003" position="4 1.2 -4"></a-link>
   </a-marker>
   <a-entity camera></a-entity>
 </a-scene>
