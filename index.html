@@ -3,6 +3,7 @@
   <!-- ① スクリプトの読み込み -->
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.2/aframe/build/aframe-ar.js"></script>
+  <script src="https://rawgit.com/gasolin/aframe-href-component/master/dist/aframe-href-component.min.js"></script>
 </head>
 <body style='margin: 0; overflow: hidden;'>
 
@@ -26,10 +27,9 @@
   </a-marker>
 
   <a-marker type='pattern' url='./marker/pattern-VF72WIsL_400x400.patt'>
-    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#00bfff">
-      <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
-      </a-animation>
-    </a-sphere>
+    <a-box id="orange-cube" position="0 3.5 -2" rotation="30 30 0"
+      width="2" depth="2" height="2" color="#F16745"
+      href="https://github.com/gasolin/aframe-href-component"></a-box>
   </a-marker>
   <a-entity camera></a-entity>
 </a-scene>
