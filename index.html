@@ -8,31 +8,21 @@
 
 <!-- シーンの追加とデバックUIを非表示 -->
 <a-scene embedded arjs="debugUIEnabled:false;">
-  <p>更新2020.9.18 11:06</p>
-  <a-marker preset="hiro">
-    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#111">
-      <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
-      </a-animation>
-    </a-sphere>
-  </a-marker>
-
-  <a-marker type='pattern' url='./marker/pattern-marker.patt'>
-    <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#f00">
-      <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
-      </a-animation>
-    </a-sphere>
-  </a-marker>
+  <p>更新2020.9.18 11:36</p>
 
   <a-marker type='pattern' url='./marker/pattern-profile.patt'>
       <a-entity
         link="href: https://dais-official-site.web.app/; title: Official Site;"
         position="0 .5 0"
       ></a-entity>
-      <a-entity
-        link="href: https://github.com/dai-570415; title: Git Hub;"
-        position="2.5 .5 0"
-      ></a-entity>
   </a-marker>
+  <a-marker type='pattern' url='./marker/pattern-git.patt'>
+    <a-entity
+      link="href: https://github.com/dai-570415; title: Git Hub;"
+      position="0 .5 0"
+    ></a-entity>
+  </a-marker>
+
   <a-entity camera look-controls wasd-controls>
     <a-entity cursor="fuse: true;"
       position="0 0 -1"
