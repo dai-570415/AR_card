@@ -8,7 +8,7 @@
 
 <!-- シーンの追加とデバックUIを非表示 -->
 <a-scene embedded arjs="debugUIEnabled:false;">
-  <p>更新2020.9.18 10:49</p>
+  <p>更新2020.9.18 10:40</p>
   <a-marker preset="hiro">
     <a-sphere scale=".25 .25 .25" position="0 .5 0" color="#111">
       <a-animation attribute="position" to="0 1 0" direction="alternate" dur="2000" repeat="indefinite">
@@ -23,11 +23,11 @@
     </a-sphere>
   </a-marker>
 
-  <a-marker type='pattern' url='./marker/pattern-profile.patt'>
+  <a-assets>
+    <img id="thumb001" crossOrigin="anonymous" src="./profile.jpg">
+  </a-assets>
 
-      <a-assets>
-        <img id="thumb001" crossOrigin="anonymous" src="./profile.jpg">
-      </a-assets>
+  <a-marker type='pattern' url='./marker/pattern-profile.patt'>
       <a-entity
         link="href: https://github.com/dai-570415; title: My Homepage 002; image: #thumb001"
         position="0 .5 0"
